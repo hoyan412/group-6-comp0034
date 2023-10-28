@@ -1,0 +1,31 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Ho Yan Or
+-->
+{% extends 'Layout.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="login">
+    <div data-aos="fade" data-aos-duration="3">
+        <div class = "card mx-auto align-items-center col-md-5 mb-7">
+            <div class = "card-body" style="width: 24rem;">
+                <h2 class="login-title text-center">Login</h2>
+                <form method="POST" action="{{ url_for('auth.login') }}" class="login-form">
+                    <br>
+                    {{ form.csrf_token }}
+                    <dl>
+                        {{ render_field(form.email, class="form-control") }}
+                        {{ render_field(form.password, class="form-control") }}
+                        {{ render_field(form.remember,class="form-check-input") }}
+                    </dl>
+                    <center><input class="btn btn-style btn-lg" type="submit" value="Login" id="click_1"></center>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,128 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Youssef Alaoui
+-->
+
+
+{% extends 'Layout.html' %}
+{% set title = 'Account Edit' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+
+    <section>
+        <div class="container">
+            <div class="main-body">
+
+                <div class="row gutters-sm">
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-column align-items-center text-center">
+                                    <img src={{url}} alt="User" class="rounded-circle" width="150">
+                                    <div class="mt-3">
+                                        <h4>{{profile.username}}</h4>
+                                        <input type="button" class="btn btn-primary"
+                                               onclick="location.href='{{ url_for('Profile_and_Account.user_account') }}';"
+                                               value="Profile"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 ">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">First Name</h6>
+                                    </div>
+                                    <div class="col-sm-6 text-secondary">
+                                        <form action="{{ url_for('Profile_and_Account.user_account_firstname_change') }}" method="POST">
+                                            {{ form.csrf_token }}
+                                            <dl>
+                                                {{ render_field(form.firstname, placeholder=current_user.firstname) }}
+                                            </dl><input class="btn btn-sm btn-success" type="submit" value="Update" id="updatefirstname">
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Last Name</h6>
+                                    </div>
+
+                                    <div class="col-sm-9 text-secondary">
+                                        <form action="{{ url_for('Profile_and_Account.user_account_lastname_change') }}" method="POST">
+                                            {{ form.csrf_token }}
+                                            <dl>
+                                                {{ render_field(form.lastname, placeholder=current_user.lastname) }}
+                                            </dl>
+                                            <input class="btn btn-sm btn-success" type="submit" value="Update" id="updatelastname">
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Email</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <form action="{{ url_for('Profile_and_Account.user_account_email_change') }}" method="POST">
+                                            {{ form.csrf_token }}
+                                            <dl>
+                                                {{ render_field(form.email, placeholder=current_user.email) }}
+                                            </dl>
+                                            <input class="btn btn-sm btn-success" type="submit" value="Update" id="updateemail">
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Date of Birth</h6>
+                                    </div>
+                                    <div class="col-sm-6 text-secondary">
+                                        <form action="{{ url_for('Profile_and_Account.user_account_dob_change') }}" method="POST">
+                                            {{ form.csrf_token }}
+                                            <dl>
+                                                {{ render_field(form.dob, placeholder=current_user.dob, class="form-control" ) }}
+                                            </dl>
+                                            <input class="btn btn-sm btn-success" type="submit" value="Update" id="updatedob">
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Password</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="button" class="btn btn-secondary btn-block"
+                                           onclick="location.href='{{ url_for('Profile_and_Account.user_account_password_change') }}';"
+                                           value="Change Password" id = "changepasswordbtn"/>
+                                    </div>
+                                </div>
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-sm-12 text-secondary">
+                                        <input type="button" class="btn btn-secondary btn-lg btn-block"
+                                               onclick="location.href='{{ url_for('Profile_and_Account.user_account') }}';"
+                                               value="Back to account"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

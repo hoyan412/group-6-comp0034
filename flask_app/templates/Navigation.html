@@ -1,0 +1,44 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Youssef Alaoui - Ho Yan Or
+-->
+
+<div class="container-fluid d-flex justify-content-between align-items-center">
+    <nav id="navbar" class="navbar">
+        <h1 class="logo me-lg-0"><a href="{{url_for("main.index") }}">NUTRITA</a></h1>
+        <ul id="nav1" class="ms-lg-5">
+            <li><a id="nav-home" class="item" href="{{url_for("main.index") }}">Home</a></li>
+            <li><a id="nav-about" class="item" href="{{url_for("main.about") }}">About</a></li>
+            <li><a id="nav-comm" class="item" href="{{url_for("community.index") }}">Community</a></li>
+            <li><a id="nav-dash" class="item" href="{{url_for("dash_html.index") }}">UK Data</a></li>
+        </ul>
+    </nav>
+    <nav id="navbar_search" class="navbar">
+        <ul>
+            {% if current_user.is_anonymous %}
+                <li><a id="signup-btn" class="btn signup-btn btn-primary" href="/signup" role="button">Sign Up</a></li>
+                <li><a id="login-btn" class="btn login-btn btn-outline" href="/login" role="button">Login</a></li>
+            {% endif %}
+
+            {% if current_user.is_authenticated %}
+                <form class="d-flex" action="{{url_for("community.search_bar_results") }}" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                <input id="search-bar" class="form-control me-2"  type="search" placeholder="Search" aria-label="Search"
+                        name="search_term" style="height: 50%;width:11rem;">
+                    <button id="search-btn" class="btn btn-search"  type="submit"><i class="bi bi-search"></i></button>
+                </form>
+                <li id = "dd" class="dropdown"><a href="#"><span><img src={{url}} alt="Avatar" class="avatar"></span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a id="dd-prof" class="dropdown-item" href="{{url_for("Profile_and_Account.profile") }}">Profile</a></li>
+                        <li><a id="dd-acc" class="dropdown-item" href="{{url_for("Profile_and_Account.user_account") }}">Account</a></li>
+                        <li><a id="dd-logout" class="dropdown-item" style="color:#ff5900;" href="{{url_for("auth.logout") }}">Logout</a></li>
+                    </ul>
+                </li>
+                </ul>
+            {% endif %}
+    </nav>
+</div>

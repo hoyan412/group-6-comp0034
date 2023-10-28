@@ -1,0 +1,23 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Bailey Roberts
+-->
+
+{% macro render_field(field) %}
+    <div class="form-group">
+        <dt>{{ field.label }}
+        <dd>{{ field(**kwargs)|safe }}
+            {% if field.errors %}
+                <ul class=errors id='error'>
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </dd>
+    </div>
+{% endmacro %}

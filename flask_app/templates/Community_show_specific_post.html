@@ -1,0 +1,124 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% block content %}
+    <section id="community_post" data-aos="fade">
+        <!-- post -->
+        <br>
+        <div class="border">
+            {% if current_profile.id == post.profile_id %}
+                <h2><i> {{ post.title }} </i></h2>
+                <a class="btn btn-delete" href="{{ url_for('community.delete_post', post_id=post.id) }}"> Delete</a>
+                <a class="btn btn-edit" href="{{ url_for('community.edit_post', post_id=post.id) }}"> Edit</a>
+            {% else %}
+                <h2><i> {{ post.title }} </i></h2>
+            {% endif %}
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <h6><i class="bi bi-calendar"> Date: </i> {{post.timestamp.strftime("%d-%m-%Y")}}</h6>
+                </div>
+                <div class="col">
+                    <h6><i class="bx bx-like"></i> Likes: {{likes}}</h6>
+                </div>
+            </div>
+
+            {% for profile in profiles %}
+                {% if profile.id == post.profile_id %}
+                    {% if profile.photo != None %}
+                        <h6><span style="font-size:17px; margin-left:10px;"><b>Posted by: </b></span>
+                            <a href="{{ url_for('Profile_and_Account.display_other_profile', username=profile.username) }}">
+                                <img src={{profile.photo}} alt="Avatar" class="avatar"></a>
+                            <a class="prof-link" href="{{ url_for('Profile_and_Account.display_other_profile', username=profile.username) }}">
+                                <i>{{ profile.username }}</i></a></h6>
+                    {% else %}
+                        <h6>{{profile.username}}</h6>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            <br>
+            <p style="margin-left:50px;">{{ post.body }}</p>
+            <br>
+            {% if like.id == Null %}
+                <form action='{{url_for("community.like_post", post_id=post.id)}}' method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                 <button type="submit" class="btn btn-outline-primary btn-sm" style="float:right;" id="like" ><i class="bx bx-like"></i> Like</button>
+                </form>
+            {% else %}
+                <form action='{{url_for("community.unlike_post", post_id=post.id)}}' method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                 <button type="submit" class="btn btn-secondary btn-sm" style="float:right;" id="unlike" ><i class="bx bxs-like"></i> UnLike</button>
+                </form>
+            {% endif %}
+            <br>
+        </div>
+        <br>
+         <!-- comment -->
+        <div class="comment">
+            <h3>Comments:</h3>
+            <hr>
+            <br>
+            {% for comment in comments %}
+                <div class="inner">
+                    {% if current_profile.id == comment.profile_id %}
+                        <a class="btn btn-delete" href="{{ url_for('community.delete_comment', post_id=post.id, comment_id=comment.id)  }}">Delete</a>
+                        <a class="btn btn-edit" href="{{ url_for('community.edit_comment', post_id=post.id, comment_id=comment.id)  }}">Edit</a>
+                    {% endif %}
+
+                    {% for profile in profiles %}
+                        {% if profile.id == comment.profile_id %}
+                            {% if profile.photo != None %}
+                                <p><a href="{{ url_for("Profile_and_Account.display_other_profile", username=profile.username) }}">
+                                    <img src={{profile.photo}} alt="Avatar" class="avatar"></a>
+                                    <a class="prof-link" href="{{ url_for('Profile_and_Account.display_other_profile', username=profile.username) }}">
+                                        <i>{{ profile.username }}</i></a></p>
+
+                            {% else %}
+                                <a class="prof-link" href="{{ url_for('Profile_and_Account.display_other_profile', username=profile.username) }}">
+                                    <p>{{ profile.username }}</p></a>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h6><i class="bi bi-calendar"></i> Date: {{post.timestamp.strftime('%d-%m-%y')}}</h6>
+                        </div>
+                        <div class="col">
+                            <h6><i class="bx bx-like"></i>
+                                Likes: {{Comment_Likes.query.filter_by(comment_id = comment.id, post_id = post.id).count()}}</h6>
+                        </div>
+                    </div>
+                    <br>
+
+                    <p>{{ comment.body }}</p>
+                    {% if Comment_Likes.query.filter_by(comment_id = comment.id, post_id = post.id, profile_id = current_profile.id).first().id == Null %}
+                        <form action='{{url_for("community.like_comment", post_id=post.id, comment_id=comment.id)}}' method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                            <button type="submit" class="btn btn-outline-primary btn-sm" style="float:right;text-align:right;" id="like_comment" ><i class="bx bx-like"></i> Like</button>
+                        </form>
+                    {% else %}
+                        <form action='{{url_for("community.unlike_comment", post_id=post.id, comment_id=comment.id)}}' method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                            <button type="submit" class="btn btn-secondary btn-sm" style="float:right;text-align:right;" id="unlike_comment" ><i class="bx bxs-like"></i> UnLike</button>
+                        </form>
+                    {% endif %}
+                    <br>
+                    <hr>
+                </div>
+            {% endfor %}
+            <br>
+            <a class="btn btn-style" href="{{ url_for('community.write_comment', post_id=post.id) }}" id="click_5">
+                <i class="bi bi-plus-circle"></i> New Comment</a>
+            <br>
+            <br>
+        </div>
+    </section>
+{% endblock %}

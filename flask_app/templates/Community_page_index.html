@@ -1,0 +1,72 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% block content %}
+    <section id="community_main">
+        <div class="section-title" data-aos="fade-up"><h2>Community</h2></div>
+        <a  class="btn btn-style" data-aos="fade" href="{{ url_for('community.create_post') }}" style="float:right;text-align:right;" id="click_2">
+            <i class="bi bi-plus-circle"></i> New Discussion</a>
+        <br>
+        <br>
+
+        <div data-aos="fade-up" >
+            {% for post in posts %}
+                <a href="{{ url_for('community.get_post', post_id=post.id) }}">
+                    <h3 class="post-title"><i> {{ post.title}}</i></h3></a>
+
+                <div class="row">
+                    <div class="col-lg-2"><h6><i class="bi bi-calendar"></i> <b>date:</b> {{post.timestamp.strftime('%d-%m-%Y')}}</h6>
+                        <script>
+                            var x = 0;
+                        </script></div>
+                    {% for comment in comments %}
+                        {% if comment.post_id == post.id %}
+                            <script>
+                                x = x+1
+                            </script>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="col-2">
+                        <h6><i class="bx bx-comment"></i> <b>comments:</b> <script>document.write(x)</script></h6>
+                    </div>
+                    <script>
+                        var x = 0;
+                    </script>
+
+                    {% for like in likes %}
+                        {% if like.post_id == post.id %}
+                            <script>
+                                x = x+1
+                            </script>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="col-3">
+                        <h6><i class="bx bx-like"></i> <b>likes:</b> <script>document.write(x)</script></h6></div>
+                </div>
+
+                {% for profile in profiles %}
+                    {% if profile.id == post.profile_id %}
+                        {% if profile.photo != None %}
+                            <h5><b>Posted by:</b>
+                                <a href="{{ url_for("Profile_and_Account.display_other_profile", username=profile.username) }}">
+                                    <img src={{profile.photo}} alt="Avatar" class="avatar"></a>
+                                <a class="prof-link" href="{{ url_for('Profile_and_Account.display_other_profile', username=profile.username) }}">
+                                    <i>{{ profile.username }}</i></a></h5>
+                        {% else %}
+                            <h5> <b>Posted by:</b><i>{{profile.username}}</i></h5>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <hr>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

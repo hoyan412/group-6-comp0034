@@ -1,0 +1,27 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+{% extends 'Layout.html' %}
+{% set title = 'Post' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="edit-post">
+        <div class = "mx-auto align-items-center col-md-11">
+            <h3>Change your mind? Edit your post!</h3>
+            <form method="POST" action="" enctype="multipart/form-data">
+                {{ form.csrf_token }}
+                <dl>
+                    {{ render_field(form.post_title, class="form-control") }}
+                    {{ render_field(form.post, class="form-control") }}
+                </dl>
+                <br>
+                <button type="submit" class="btn btn-style" style="float: right;">Update</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

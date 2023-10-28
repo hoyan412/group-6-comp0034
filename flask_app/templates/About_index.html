@@ -1,0 +1,57 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% block content %}
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title" data-aos="fade-up">
+                <h2>About</h2>
+            </div>
+            <div data-aos="fade" data-aos-delay="700" data-aos-duration="1500">
+                <h3><i>Problem</i></h3>
+                <p>According to the National Health Service (NHS) in the UK,</p>
+                <div class="row facts">
+                    <div class="col-lg-4 col-6 text-center">
+                        <h1>62%</h1><p>of the UK population is overweight</p>
+                    </div>
+                    <div class="col-lg-4 col-6 text-center">
+                        <h1>1 in 4</h1><p>Adults in the UK are obese</p>
+                    </div>
+                    <div class="col-lg-4 col-6 text-center">
+                        <h1>525,000</h1><p>NHS admissions related to obesity</p>
+                    </div>
+                </div>
+                <p>The eating habits of individuals have been a persistent issue within the UK. In order to avoid health risks,
+                    it is important to understand the available dietary habits data and to have a well-balanced diet. </p>
+                <br>
+                <h3><i>Goal</i></h3>
+                <p> We aim to develop an application that allows users to clearly visualize the nutrition data and connect with
+                    like-minded people about their issues and/or interests related to health and nutrition. This application
+                    will target the UK population who are interested in health as well as facilitate the work of nutritionists
+                    and health specialists. </p>
+                <br>
+                <h3><i>Information</i></h3>
+                <p><i>NUTRITA</i> is a web application created for the COMP0034 Application Programming for Data Science
+                    Module at University College London. The data collected from our users are used for educational
+                    purposes only.</p>
+
+                <p>The selected dataset is the <i>"UK National Diet and Nutrition Survey (NDNS) Rolling Programme"</i>
+                    published by the Public Health England and Food Standards Agency retrieved from the UK government
+                    website. It includes information on nutrient intake and food consumption of the UK population aged
+                    1.5 years and over. Our visualisations focus on the intake and contribution data of the following
+                    nutrients - Protein, Fat, Free Sugar, Magnesium and Calcium.</p>
+                <br>
+                <h3><i>Authors</i></h3>
+                <p>Rayan Souissi - Ho Yan Or - Youssef Alaoui Mrani - Aydan Guliyeva - Bailey Roberts</p>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

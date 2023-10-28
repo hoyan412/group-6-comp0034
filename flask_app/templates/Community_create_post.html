@@ -1,0 +1,26 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="create-post">
+        <div class = "mx-auto align-items-center col-md-11">
+            <h2>Start your discussion topic here!</h2>
+            <form action="" method="post" >
+                <br>
+                {{ form.csrf_token }}
+                <dl>{{ render_field(form.post_title, class="form-control") }}</dl>
+                <dl>{{ render_field(form.post, class="form-control") }}</dl>
+                <br>
+                <input class="btn btn-style" style="float: right;" type="submit" value="Create Post" id="click_3">
+            </form>
+        </div>
+    </section>
+{% endblock %}

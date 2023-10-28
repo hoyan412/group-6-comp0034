@@ -1,0 +1,879 @@
+/**
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Author: Ho Yan Or
+
+Credits to (based on the following template):
+* Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+* Author: BootstrapMade.com
+
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+}
+
+a {
+  color: #34b7a7;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #51cdbe;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", sans-serif;
+}
+
+@media (max-width: 992px) {
+  #main {
+    margin-top: 30px;
+  }
+}
+section {
+  padding: 45px 45px;
+  min-height: 90vh;
+}
+
+.section-bg {
+  background-color: #e7f8f6;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #34b7a7;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+
+.jumbotron {
+    width: 100%;
+    height: 50vh;
+    background-color: #ececec;
+    padding: 70px;
+}
+
+.main{
+    width: 100%;
+    margin:0;
+}
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+#header {
+  background: #e9e8e6;
+  box-shadow: 0px 0px 25px 0 rgba(0, 0, 0, 0.08);
+  z-index: 997;
+  padding: 5px 0;
+}
+
+#header .logo {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+#header .logo a {
+  color: #222222;
+}
+
+@media (max-width: 992px) {
+  #header .logo {
+    font-size: 28px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Flash messages
+--------------------------------------------------------------*/
+
+.danger {
+  padding: 7px;
+  background-color: #ff4444;
+  color: white;
+    opacity: 90%;
+    margin-right:25px;
+    margin-top: 7px;
+}
+
+.success {
+  padding: 7px;
+  background-color: #00C851;
+  color: white;
+  transition: opacity 0.6s;
+    margin-right:25px;
+    margin-top: 7px;
+}
+
+.warning {
+  padding: 7px;
+  background-color: #ff9800;
+  color: white;
+  transition: opacity 0.6s;
+    margin-right:25px;
+    margin-top: 7px;
+}
+
+.info {
+  padding: 7px;
+  background-color: #33b5e5;
+  color: white;
+  transition: opacity 0.6s;
+    margin-right:25px;
+    margin-top: 7px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;}
+
+
+/*--------------------------------------------------------------
+# Home page (not logged in)
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url('../img/bg.jpg') top right;
+    background-size: cover;
+}
+#hero .container {
+  padding-top: 70px;
+  position: relative;
+}
+
+@media (max-width: 992px) {
+  #hero .container {
+    padding-top: 58px;
+  }
+}
+
+#hero h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #222222;
+}
+
+#hero h2 {
+  color: #393333;
+  margin: 10px 0 0 0;
+  font-size: 22px;
+}
+
+#hero p {
+    color: #292828;
+  margin: 0;
+  font-size: 13px;
+}
+
+#hero .btn-signup {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin-top: 30px;
+  color: #fff;
+  background: #34b7a7;
+}
+
+#hero .btn-signup:hover {
+  background: #3dc8b7;
+}
+
+#hero .login{
+    color: #31857a;
+}
+#hero .login:hover {
+    color: #39bcac;
+    text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+  #hero {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 992px) {
+  #hero:before {
+    content: "";
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.navbar {
+  padding:0;
+    height:59px;
+}
+
+.navbar ul {
+  margin:0;
+  padding:15px;
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.navbar li {
+  position: relative;
+    padding-left: 20px;
+}
+
+.navbar .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #888888;
+  white-space: nowrap;
+  transition: 0.3s;
+  position: relative;
+}
+
+.navbar > ul > li > .item:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #34b7a7;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.navbar .item:hover:before, .navbar li:hover > .item:before, .navbar .active:before {
+  visibility: visible;
+  width: 25px;
+}
+
+.navbar .item:hover, .navbar .active, .navbar li:hover > .item {
+  color: #222222;
+}
+
+.navbar .btn{
+         padding: 7px 15px;
+    border-radius: 15px;
+     font-size: 14px;
+    font-weight: 600;
+}
+
+.navbar .login-btn {
+  color: #403F3F;
+  border: 1.3px solid #31857a;
+}
+
+.navbar .login-btn:hover {
+  color: #fff;
+  background: #31857a;
+}
+
+.navbar .signup-btn {
+  color:  #fff;
+  border: 1.3px solid #31857a;
+    background: #586666;
+    margin-left:20px;
+}
+
+.navbar .signup-btn:hover {
+  color: #fff;
+  background: #31857a;
+}
+
+.navbar .btn-search {
+  color: #6f6f6f;
+  line-height: 0px;
+  transition: 0.3s;
+  font-size: 20px;
+    padding:0;
+    margin:2px;
+}
+
+.navbar .btn-search:hover {
+  color: #34b7a7;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 70%;
+}
+
+.navbar .dropdown ul {
+  display: block;
+  position: absolute;
+    right: 14px;
+  top: calc(100% + 30px);
+  margin: 0;
+  padding: 10px 0;
+  z-index: 99;
+  visibility: hidden;
+  background: #fff;
+  box-shadow: 0 0 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+}
+
+.navbar .dropdown ul li {
+  min-width: 200px;
+}
+
+.navbar .dropdown ul a {
+  padding: 10px 10px;
+  font-size: 14px;
+  text-transform: none;
+  font-weight: 500;
+  color: #0c3c53;
+}
+
+.navbar .dropdown ul a i {
+  font-size: 12px;
+}
+
+.navbar .dropdown ul a:hover {
+  color: #34b7a7;
+}
+
+.navbar .dropdown:hover > ul {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.navbar .dropdown .dropdown ul {
+  top: 0;
+  left: calc(100% - 30px);
+  visibility: hidden;
+}
+
+.navbar .dropdown .dropdown:hover > ul {
+  opacity: 1;
+  top: 0;
+  left: 100%;
+  visibility: visible;
+}
+
+/*--------------------------------------------------------------
+# User home page (logged in)
+--------------------------------------------------------------*/
+#userhome h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 46px;
+  color: #292828;
+  padding-bottom: 10px;
+    margin-bottom: 10px;
+  position: relative;
+}
+
+#userhome p {
+  padding-bottom: 10px;
+    margin-bottom: 10px;
+  position: relative;
+}
+#userhome .icon-box {
+  text-align: center;
+  padding: 70px 20px 80px 20px;
+  transition: all ease-in-out 0.3s;
+  background: #fff;
+  box-shadow: 0px 0 35px 0 rgba(0, 0, 0, 0.08);
+}
+
+#userhome .icon-box .icon {
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease-in-out 0.3s;
+  position: relative;
+}
+
+#userhome .icon-box .icon i {
+  font-size: 36px;
+  transition: 0.5s;
+  position: relative;
+}
+
+#userhome .icon-box .icon svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#userhome .icon-box .icon svg path {
+  transition: 0.5s;
+  fill: #f5f5f5;
+}
+
+#userhome .icon-box h4 {
+  font-weight: 600;
+  margin: 10px 0 15px 0;
+  font-size: 22px;
+}
+
+#userhome .icon-box h4 a {
+  color: #222222;
+  transition: ease-in-out 0.3s;
+}
+#userhome .icon-box h4 a:hover{
+    color: #6c99d9;
+}
+
+#userhome .icon-box p {
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+#userhome .iconbox-blue i {
+  color: #47aeff;
+}
+
+#userhome .iconbox-blue:hover .icon i {
+  color: #fff;
+}
+
+#userhome .iconbox-blue:hover .icon path {
+  fill: #47aeff;
+}
+
+#userhome .iconbox-orange i {
+  color: #ffa76e;
+}
+
+#userhome .iconbox-orange:hover .icon i {
+  color: #fff;
+}
+
+#userhome .iconbox-orange:hover .icon path {
+  fill: #ffa76e;
+}
+
+#userhome .iconbox-pink i {
+  color: #e80368;
+}
+
+#userhome .iconbox-pink:hover .icon i {
+  color: #fff;
+}
+
+#userhome .iconbox-pink:hover .icon path {
+  fill: #e80368;
+}
+
+/*--------------------------------------------------------------
+# About page
+--------------------------------------------------------------*/
+#about h3 {
+    font-size: 26px;
+    color: #555555;
+}
+#about .facts h1{
+  font-size: 40px;
+  display: block;
+  color: #34b7a7;
+}
+
+#about .facts p {
+  padding: 0;
+  margin: 0 0 20px 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 15px;
+}
+
+/*--------------------------------------------------------------
+# Sign up
+--------------------------------------------------------------*/
+#signup .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+  margin-bottom:15px;
+  margin-top:15px;
+}
+
+#signup .title{
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+#signup .title::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #34b7a7;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+
+/*--------------------------------------------------------------
+# Login
+--------------------------------------------------------------*/
+#login .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+}
+#login .card{
+  margin-top: 70px;
+}
+
+#login .login-title{
+  font-size: 32px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  position: relative;
+}
+#login  .login-title::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #34b7a7;
+  bottom: 0;
+  left: calc(50% - 25px);
+}
+/*--------------------------------------------------------------
+# Other profiles
+--------------------------------------------------------------*/
+.prof-link{
+  color: #1d2825;
+}
+
+.prof-link:hover {
+  color: #445f5b;
+  text-decoration: underline;
+}
+
+
+/*--------------------------------------------------------------
+# Community
+--------------------------------------------------------------*/
+#community_main{
+  margin-left: 30px;
+  margin-right:25px;
+}
+
+#community_main .post-title{
+  margin-top:35px
+}
+
+#community_main h3{
+  font-weight:510;
+}
+
+#community_main h5{
+  font-size:16px;
+}
+
+#community_main .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition: 0.2s;
+  color: #fff;
+  background: #438882;
+  float: right;
+}
+#community_main .bi{
+      font-size:14px;
+}
+#community_main .avatar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 70%;
+}
+
+#create-post .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+}
+
+#edit-post .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+}
+
+#post-comment .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+  float: right;
+}
+
+#community_post h2{
+  color: #34b7a7;
+  font-size: 36px;
+}
+
+#community_post h3{
+  font-size: 22px;
+}
+
+#community_post{
+  margin:0 30px;
+}
+
+#community_post .border {
+  padding: 30px;
+  margin-bottom: 10px;
+}
+#community_post .avatar{
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 70%;
+}
+
+ #community_post .btn-edit{
+   font-family: "Raleway", sans-serif;
+   text-transform: uppercase;
+   font-weight: 600;
+   font-size: 12px;
+   letter-spacing: 1px;
+   display: inline-block;
+   padding: 8px 16px;
+   border-radius: 10px;
+   color: #fff;
+   background: #3986f8;
+   float: right;
+   margin-right:5px;
+ }
+#community_post .btn-delete{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding:8px 10px;
+  border-radius: 10px;
+  color: #fff;
+  background: #ee2222;
+  float: right;
+  margin-left:5px;
+}
+
+#community_post .btn-edit:hover{
+  color: #020101;
+  background: #3067b7;
+}
+#community_post .btn-delete:hover{
+  color: #020101;
+  background: #c82e2e;
+}
+#community_post .btn-style {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 15px;
+  transition: 0.2s;
+  color: #fff;
+  background: #48aba2;
+  margin-left:50px
+}
+#community_post .comment{
+    margin-left: 10px;
+}
+#community_post .inner{
+    margin-left: 55px;
+}
+/*--------------------------------------------------------------
+# Profile
+--------------------------------------------------------------*/
+#create-profile{
+    margin:10px 70px;
+     }
+
+#create-profile .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 35px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+}
+
+.display-prof .card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+    word-wrap: break-word;
+}
+.display-prof .card-text{
+    margin:0;
+}
+
+#edit-prof .btn-style{
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #34b7a7;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: #e9e8e6;
+  padding: 30px 0;
+  color: #222222;
+  font-size: 14px;
+  text-align: center;
+    width: 100%;
+    position: absolute;
+}
+
+/*-- Footer Social Links--*/
+.footer-social-links {
+  padding-right: 15px;
+}
+
+.footer-social-links a {
+  color: #6f6f6f;
+  padding-left: 6px;
+  display: inline-block;
+  line-height: 0px;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.footer-social-links a:hover {
+  color: #34b7a7;
+}

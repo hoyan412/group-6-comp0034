@@ -1,0 +1,25 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="post-comment">
+        <h2>Post a comment to <span style="color:#34b7a7"><i>{{post.title}}</i></span></h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            <br>
+            {{ form.csrf_token }}
+            <dl>
+                {{ render_field(form.comment, class="form-control") }}
+            </dl>
+            <br>
+            <button type="submit" class="btn btn-style" id="click_4">Comment<i class="bi bi-arrow-right"></i></button>
+        </form>
+    </section>
+{% endblock %}

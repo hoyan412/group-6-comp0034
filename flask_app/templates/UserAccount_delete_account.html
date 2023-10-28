@@ -1,0 +1,28 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Youssef Alaoui
+-->
+
+
+{% extends 'Layout.html' %}
+{% block content %}
+    <section xmlns="http://www.w3.org/1999/html">
+    <form action='' method="post" enctype="multipart/form-data">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+
+        <div class="jumbotron">
+            <center>
+                <h2 class="display-4">Click YES to confirm</h2>
+                <p class="lead">
+                    <input class="btn btn-danger btn-lg" type="submit" value="Yes" id="yes-click">
+                </p>
+                <a href='{{ url_for('main.index') }}'>Cancel</a>
+            </center>
+            </div>
+    </form>
+    </section>
+{% endblock %}

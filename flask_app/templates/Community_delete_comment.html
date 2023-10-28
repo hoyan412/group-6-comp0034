@@ -1,0 +1,25 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Rayan Souissi - Bailey Roberts - Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% block content %}
+    <section>
+        <center>
+            <form action='' method="post" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+                <div class="jumbotron jumbotron-fluid">
+                    <h3 class="display-4">Click YES to confirm</h3><p class="lead">
+                    <button type="submit" class="btn btn-danger btn-lg">Yes</button></p>
+                    <a href="{{ url_for('community.get_post', post_id=post.id) }}">Cancel</a>
+                </div>
+            </form>
+        </center>
+    </section>
+{% endblock %}
+

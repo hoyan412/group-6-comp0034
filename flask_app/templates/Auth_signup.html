@@ -1,0 +1,39 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Ho Yan Or
+-->
+
+{% extends 'Layout.html' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="signup">
+        <div class = "mx-auto align-items-center col-md-9 mb-8" style="width: 40rem;" data-aos="fade-up" data-aos-duration="60">
+            <br>
+            <h2 class="title text-center">Create Your Account</h2>
+            <form method="POST" action="{{ url_for('auth.signup') }}">
+                <br>
+                {{ form.csrf_token }}
+                <dl>
+                    <div class="row align-items-center">
+                        <div class="col">
+                            {{ render_field(form.first_name, class="form-control") }}
+                        </div>
+                        <div class="col">
+                            {{ render_field(form.last_name, class="form-control") }}
+                        </div>
+                    </div>
+                    {{ render_field(form.dob, class="form-control") }}
+                    {{ render_field(form.email, class="form-control") }}
+                    {{ render_field(form.password, class="form-control") }}
+                    {{ render_field(form.password_confirm, class="form-control") }}
+                </dl>
+                <center><input id="click" class="btn btn-style" type="submit" value="Sign Up"></center>
+            </form>
+        </div>
+    </section>
+{% endblock %}
+

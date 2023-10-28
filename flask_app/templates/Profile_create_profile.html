@@ -1,0 +1,27 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Youssef Alaoui - Aydan Guliyeva - Ho Yan Or
+-->
+{% extends 'Layout.html' %}
+{% set title = 'Profile' %}
+{% from "_formhelpers.html" import render_field %}
+{% block content %}
+    <section id="create-profile">
+        <center><h3>Create a profile to participate in the community! </h3></center>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            <dl>
+                {{ render_field(form.username, class="form-control") }}
+                {{ render_field(form.bio, class="form-control") }}
+                {{ render_field(form.photo, class="custom file", id="input_file") }}
+                {{ render_field(form.gender) }}
+            </dl>
+            <center><input class="btn btn-style" type="submit" value="Save" id="save-click"></center>
+        </form>
+    </section>
+
+{% endblock %}

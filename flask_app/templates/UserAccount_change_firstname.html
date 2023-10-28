@@ -1,0 +1,27 @@
+<!--
+Organisation: University College London
+# Module: Application Programming for Data Science
+# Module Code: COMP0034
+# Date: 28/04/2021
+# Project: CW 2
+# Authors: Youssef Alaoui
+-->
+
+
+{% extends "Layout.html" %}
+{% set title = 'Change firstname' %}
+{% from "_formhelpers.html" import render_field %}
+
+{% block content %}
+    <section>
+    <h3>First name change: </h3>
+        <form action="{{ url_for('Profile_and_Account.user_account_firstname_change') }}" method="POST">
+            {{ form.csrf_token }}
+            <dl>
+                {{ render_field(form.firstname, placeholder=current_user.firstname) }}
+            </dl>
+            <button class="btn btn-sm btn-success" type="submit">Update</button>
+        </form>
+    </section>
+
+{% endblock %}
